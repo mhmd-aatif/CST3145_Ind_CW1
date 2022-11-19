@@ -33,32 +33,58 @@
           Go Back
         </button>
       </div>
-      <div id="products" v-if="showProduct">
-        <div id="product" v-for="product in sortedProducts">
-          <!-- Creating div for subject details -->
-          <div id="details">
-            <p>Subject: {{ product.title }}</p>
-            <p>Location: {{ product.location }}</p>
-            <p>Price(AED): {{ product.price }}</p>
-            <p>Space: {{ product.displaySpace }}</p>
-            <p v-if="product.space === cartCount(product.id)">Out Of Stock!</p>
-            <p v-else-if="product.space - cartCount(product.id) < 5">
-              Only {{product.space - cartCount(product.id)}} left!
-            </p>
-            <p v-else>Buy Now!</p>
+      <div v-if="showProduct">
+        <div id="sort">
+          <h2>Sort</h2>
+          <p>By</p>
+          <input type="radio" id="subject" value="Subject" v-model="sort.by" />
+          <label for="subject">Subject</label><br />
+          <input
+            type="radio"
+            id="location"
+            value="Location"
+            v-model="sort.by"
+          />
+          <label for="location">Location</label><br />
+          <input type="radio" id="price" value="Price" v-model="sort.by" />
+          <label for="price">Price</label><br />
+          <input type="radio" id="space" value="Space" v-model="sort.by" />
+          <label for="space">Space</label>
+          <p>Order</p>
+          <input type="radio" id="ascending" value="a" v-model="sort.order" />
+          <label for="ascending">Ascending</label><br />
+          <input type="radio" id="descending" value="d" v-model="sort.order" />
+          <label for="descending">Descending</label>
+        </div>
+        <div id="products">
+          <div id="product" v-for="product in sortedProducts">
+            <!-- Creating div for subject details -->
+            <div id="details">
+              <p>Subject: {{ product.title }}</p>
+              <p>Location: {{ product.location }}</p>
+              <p>Price(AED): {{ product.price }}</p>
+              <p>Space: {{ product.displaySpace }}</p>
+              <p v-if="product.space === cartCount(product.id)">
+                Out Of Stock!
+              </p>
+              <p v-else-if="product.space - cartCount(product.id) < 5">
+                Only {{product.space - cartCount(product.id)}} left!
+              </p>
+              <p v-else>Buy Now!</p>
+            </div>
+            <!-- Creating div for image -->
+            <div id="image">
+              <img id="imgsize" v-bind:src="product.image" />
+            </div>
+            <!-- Creating add button with click and disable attributes -->
+            <button
+              id="addB"
+              @click="addItem(product)"
+              v-bind:disabled="!canAdd(product)"
+            >
+              Add
+            </button>
           </div>
-          <!-- Creating div for image -->
-          <div id="image">
-            <img id="imgsize" v-bind:src="product.image" />
-          </div>
-          <!-- Creating add button with click and disable attributes -->
-          <button
-            id="addB"
-            @click="addItem(product)"
-            v-bind:disabled="!canAdd(product)"
-          >
-            Add
-          </button>
         </div>
       </div>
       <div v-else-if="showPlaceOrder">
