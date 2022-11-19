@@ -1,0 +1,163 @@
+<html lang="en">
+  <head>
+    <!-- Setting the title of the page -->
+    <title>Course Store</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <!-- Linking the external stylesheet -->
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <!-- Including Vue CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/products.js"></script>
+  </head>
+  <body>
+    <!-- Creating div for Vue element -->
+    <div id="app">
+      <div id="header">
+        <h2>COURSES STORE</h2>
+      </div>
+      <div id="checkout">
+        <button
+          id="checkB"
+          @click="showCheckout"
+          v-bind:disabled="!canCheckOut"
+          v-if="showProduct"
+        >
+          <img id="cart" src="images/cart.png" /> {{cartItemCount}}
+        </button>
+        <button
+          id="checkB"
+          @click="showCheckout"
+          v-bind:disabled="showPlaceOrder"
+          v-else
+        >
+          Go Back
+        </button>
+      </div>
+      <div id="products" v-if="showProduct">
+        <div id="product" v-for="product in sortedProducts">
+          <!-- Creating div for subject details -->
+          <div id="details">
+            <p>Subject: {{ product.title }}</p>
+            <p>Location: {{ product.location }}</p>
+            <p>Price(AED): {{ product.price }}</p>
+            <p>Space: {{ product.displaySpace }}</p>
+            <p v-if="product.space === cartCount(product.id)">Out Of Stock!</p>
+            <p v-else-if="product.space - cartCount(product.id) < 5">
+              Only {{product.space - cartCount(product.id)}} left!
+            </p>
+            <p v-else>Buy Now!</p>
+          </div>
+          <!-- Creating div for image -->
+          <div id="image">
+            <img id="imgsize" v-bind:src="product.image" />
+          </div>
+          <!-- Creating add button with click and disable attributes -->
+          <button
+            id="addB"
+            @click="addItem(product)"
+            v-bind:disabled="!canAdd(product)"
+          >
+            Add
+          </button>
+        </div>
+      </div>
+      <div v-else-if="showPlaceOrder">
+        <div id="order-info">
+          <h2>Order Placed Successfully!</h2>
+          <div>Courses Taken : {{order.cart}}</div>
+          <p>Total Courses : {{cart.length}}</p>
+          <p>First Name : {{order.firstName}}</p>
+          <p>Last Name : {{order.lastName}}</p>
+          <p>Address : {{order.address}}</p>
+          <p>City : {{order.city}}</p>
+          <p>Zip : {{order.zip}}</p>
+          <p>Emirate : {{order.state}}</p>
+          <p>Gift : {{order.gift}}</p>
+          <p>Method : {{order.method}}</p>
+        </div>
+      </div>
+      <div v-else>
+        <div id="bucket">
+          <h2>Cart</h2>
+          <div id="cart-items">
+            <div id="product" v-for="product in displayCart">
+              <div id="details">
+                <p>Subject: {{ product.title }}</p>
+                <p>Location: {{ product.location }}</p>
+                <p>Price(AED): {{ product.price }}</p>
+              </div>
+              <!-- Creating div for image -->
+              <div id="image">
+                <img id="imgsize" v-bind:src="product.image" />
+              </div>
+              <button id="addB" @click="removeItem(product)">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div id="order-info">
+          <h2>Enter Order Information</h2>
+          <div id="order-table">
+            <p>
+              <strong>First Name:</strong>
+              <input v-model.trim="order.firstName" />
+            </p>
+            <p>
+              <strong>Last Name:</strong>
+              <input v-model.trim="order.lastName" />
+            </p>
+            <p>
+              <strong>Address:</strong>
+              <input v-model="order.address" />
+            </p>
+            <p>
+              <strong>City:</strong>
+              <input v-model="order.city" />
+            </p>
+            <p>
+              <strong>Emirate:</strong>
+              <select v-model="order.state">
+                <option disabled value="">Emirate</option>
+                <option v-for="(state, key) in states" v-bind:value="state">
+                  {{key}}
+                </option>
+              </select>
+            </p>
+            <p>
+              <strong>Zip/Postal Code:</strong>
+              <input v-model.number="order.zip" type="number" />
+            </p>
+          </div>
+          <p>
+            <input
+              type="checkbox"
+              id="gift"
+              value="true"
+              v-model="order.gift"
+              v-bind:true-value="order.sendGift"
+              v-bind:false-value="order.dontSendGift"
+            /><label for="gift">Ship As Gift?</label>
+          </p>
+          <p>
+            <input
+              type="radio"
+              id="home"
+              value="Home"
+              v-model="order.method"
+            /><label for="home">Home</label
+            ><input
+              type="radio"
+              id="business"
+              value="Business"
+              v-model="order.method"
+            /><label for="business">Business</label>
+          </p>
+        </div>
+        <button id="checkB" v-on:click="submitForm" v-if="canPlaceOrder">
+          Place Order
+        </button>
+      </div>
+    </div>
+    <!-- Including external script file -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
