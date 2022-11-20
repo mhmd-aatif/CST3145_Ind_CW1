@@ -3,7 +3,7 @@ let webstore = new Vue({
   el: "#app", // links to the div
   // the data option
   data: {
-    sitename: "coursestore", // defines sitename
+    sitename: "activitystore", // defines sitename
     products: products,
     order: {
       firstName: "",
