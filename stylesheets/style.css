@@ -189,3 +189,18 @@ input {
   margin-left: 100px;
   margin-top: 100px;
 }
+
+#search-bar {
+  position: absolute;
+  margin-left: 100px;
+}
+
+#search-bar input[type="text"] {
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+  border: 5px solid black;
+  border-radius: 10px;
+}
