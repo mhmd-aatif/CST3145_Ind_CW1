@@ -26,7 +26,7 @@ let products = [
     space: 10,
     price: 250,
     image: "images/coding.png",
-    rating: 3,
+    rating: 5,
     displaySpace: 10,
   },
   {
@@ -36,7 +36,7 @@ let products = [
     space: 10,
     price: 275,
     image: "images/cricket.png",
-    rating: 5,
+    rating: 3,
     displaySpace: 10,
   },
   {
@@ -46,7 +46,7 @@ let products = [
     space: 10,
     price: 275,
     image: "images/dancing.png",
-    rating: 5,
+    rating: 4,
     displaySpace: 10,
   },
   {
@@ -66,7 +66,7 @@ let products = [
     space: 10,
     price: 275,
     image: "images/karate.png",
-    rating: 5,
+    rating: 3,
     displaySpace: 10,
   },
   {
@@ -76,7 +76,7 @@ let products = [
     space: 10,
     price: 275,
     image: "images/music.png",
-    rating: 5,
+    rating: 3,
     displaySpace: 10,
   },
   {
@@ -86,7 +86,7 @@ let products = [
     space: 10,
     price: 275,
     image: "images/swimming.png",
-    rating: 5,
+    rating: 4,
     displaySpace: 10,
   },
   {
@@ -96,7 +96,7 @@ let products = [
     space: 10,
     price: 275,
     image: "images/table_tennis.png",
-    rating: 5,
+    rating: 3,
     displaySpace: 10,
   },
 ];

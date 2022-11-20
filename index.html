@@ -8,6 +8,17 @@
     <!-- Including Vue CDN -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/products.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <!-- Creating div for Vue element -->
@@ -67,6 +78,14 @@
               <p>Location: {{ product.location }}</p>
               <p>Price(AED): {{ product.price }}</p>
               <p>Space: {{ product.displaySpace }}</p>
+              <p>
+                Rating:
+                <i class="fa-solid fa-star" v-for="n in product.rating"></i
+                ><i
+                  class="fa-regular fa-star"
+                  v-for="n in 5-product.rating"
+                ></i>
+              </p>
               <p v-if="product.space === cartCount(product.id)">
                 Out Of Stock!
               </p>
@@ -114,6 +133,14 @@
                 <p>Subject: {{ product.title }}</p>
                 <p>Location: {{ product.location }}</p>
                 <p>Price(AED): {{ product.price }}</p>
+                <p>
+                  Rating:
+                  <i class="fa-solid fa-star" v-for="n in product.rating"></i
+                  ><i
+                    class="fa-regular fa-star"
+                    v-for="n in 5-product.rating"
+                  ></i>
+                </p>
               </div>
               <!-- Creating div for image -->
               <div id="image">

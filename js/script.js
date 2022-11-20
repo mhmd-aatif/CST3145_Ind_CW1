@@ -46,6 +46,7 @@ let webstore = new Vue({
           location: product.location,
           price: product.price,
           image: product.image,
+          rating: product.rating,
         });
       }
     },
