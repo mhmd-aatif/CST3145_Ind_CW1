@@ -27,6 +27,7 @@ let webstore = new Vue({
       by: "Price",
       order: "a",
     },
+    search: "",
     cart: [], //creating cart array
     showProduct: true,
     showPlaceOrder: false,
@@ -126,44 +127,52 @@ let webstore = new Vue({
     },
 
     sortedProducts() {
-      switch (this.sort.order) {
-        case "a":
-          x = 1;
-          y = -1;
-          break;
-        case "d":
-          x = -1;
-          y = 1;
-          break;
-      }
+      if (this.search !== "") {
+        return this.products.filter(
+          (item) =>
+            item.title.toLowerCase() === this.search.toLowerCase() ||
+            item.location.toLowerCase() === this.search.toLowerCase()
+        );
+      } else {
+        switch (this.sort.order) {
+          case "a":
+            x = 1;
+            y = -1;
+            break;
+          case "d":
+            x = -1;
+            y = 1;
+            break;
+        }
 
-      if (this.sort.by == "Subject") {
-        function compare(a, b) {
-          if (a.title > b.title) return x;
-          if (a.title < b.title) return y;
-          return 0;
+        if (this.sort.by == "Subject") {
+          function compare(a, b) {
+            if (a.title > b.title) return x;
+            if (a.title < b.title) return y;
+            return 0;
+          }
+        } else if (this.sort.by == "Location") {
+          function compare(a, b) {
+            if (a.location > b.location) return x;
+            if (a.location < b.location) return y;
+            return 0;
+          }
+        } else if (this.sort.by == "Price") {
+          function compare(a, b) {
+            if (a.price > b.price) return x;
+            if (a.price < b.price) return y;
+            return 0;
+          }
+        } else if (this.sort.by == "Space") {
+          function compare(a, b) {
+            if (a.displaySpace > b.displaySpace) return x;
+            if (a.displaySpace < b.displaySpace) return y;
+            return 0;
+          }
         }
-      } else if (this.sort.by == "Location") {
-        function compare(a, b) {
-          if (a.location > b.location) return x;
-          if (a.location < b.location) return y;
-          return 0;
-        }
-      } else if (this.sort.by == "Price") {
-        function compare(a, b) {
-          if (a.price > b.price) return x;
-          if (a.price < b.price) return y;
-          return 0;
-        }
-      } else if (this.sort.by == "Space") {
-        function compare(a, b) {
-          if (a.displaySpace > b.displaySpace) return x;
-          if (a.displaySpace < b.displaySpace) return y;
-          return 0;
-        }
-      }
 
-      return this.products.sort(compare);
+        return this.products.sort(compare);
+      }
     },
   },
 });
