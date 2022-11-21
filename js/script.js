@@ -111,10 +111,10 @@ let webstore = new Vue({
     },
     canPlaceOrder() {
       return (
-        this.order.firstName != "" &&
-        this.order.lastName != "" &&
+        this.order.firstName.match(/^[A-Za-z]+$/) &&
+        this.order.lastName.match(/^[A-Za-z]+$/) &&
         this.order.address != "" &&
-        this.order.city != "" &&
+        this.order.city.match(/^[A-Za-z]+$/) &&
         this.order.zip != "" &&
         this.order.state != ""
       );
