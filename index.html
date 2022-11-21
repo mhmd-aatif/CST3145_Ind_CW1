@@ -128,7 +128,7 @@
         <div id="bucket">
           <h2>Cart</h2>
           <div id="cart-items">
-            <div id="product" v-for="product in displayCart">
+            <div id="cartI" v-for="product in displayCart">
               <div id="details">
                 <p>Subject: {{ product.title }}</p>
                 <p>Location: {{ product.location }}</p>
@@ -146,7 +146,7 @@
               <div id="image">
                 <img id="imgsize" v-bind:src="product.image" />
               </div>
-              <button id="addB" @click="removeItem(product)">Remove</button>
+              <button id="removeB" @click="removeItem(product)">Remove</button>
             </div>
           </div>
         </div>
@@ -207,10 +207,13 @@
               v-model="order.method"
             /><label for="business">Business</label>
           </p>
+          <button id="placeB" v-on:click="submitForm" v-if="canPlaceOrder">
+            Place Order
+          </button>
         </div>
-        <button id="checkB" v-on:click="submitForm" v-if="canPlaceOrder">
+        <!-- <button id="checkB" v-on:click="submitForm" v-if="canPlaceOrder">
           Place Order
-        </button>
+        </button> -->
       </div>
     </div>
     <!-- Including external script file -->

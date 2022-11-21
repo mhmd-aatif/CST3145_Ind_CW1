@@ -1,7 +1,7 @@
 /* styling the body */
 body {
   font-family: sans-serif;
-  background-color: brown;
+  background-color: white;
   margin: 0px;
 }
 
@@ -16,16 +16,16 @@ body {
 #product {
   width: 370px;
   height: 280px;
-  border: 5px solid black;
-  border-radius: 7px;
+  border: 5px solid white;
+  border-radius: 15px;
   padding: 10px;
-  background-color: greenyellow;
+  background-color: #f9b931;
   margin: 10px;
 }
 
 /* setting hover style for item box */
 #product:hover {
-  border: 5px solid white;
+  border: 5px solid #677189;
   font-weight: bold;
 }
 
@@ -56,7 +56,8 @@ body {
 
 /* styling the add button */
 #addB {
-  background-color: rgb(128, 128, 128);
+  background-color: #202d40;
+  color: #e2e2e2;
   border: none;
   border-radius: 15px;
   display: inline-block;
@@ -84,19 +85,19 @@ body {
 #addB:active {
   position: relative;
   top: -1px;
-  background-color: rgb(120, 128, 128);
+  background-color: #202d40;
 }
 
 #addB:disabled {
   position: relative;
   top: 1px;
   border: none;
-  background-color: white;
+  background-color: #677189;
 }
 
 #checkB {
-  background-color: white;
-  border: solid 5px black;
+  background-color: #779a91;
+  border: solid 5px #0d3580;
   border-radius: 15px;
   display: inline-block;
   font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
@@ -123,11 +124,11 @@ body {
 #checkB:active {
   position: relative;
   top: -1px;
-  background-color: white;
+  background-color: #779a91;
 }
 
 #header {
-  background-color: black;
+  background-color: #3f63b5;
   align-items: center;
   margin: 0%;
   padding: 0.05px;
@@ -144,14 +145,15 @@ body {
 }
 
 #order-info {
-  border: 5px solid black;
+  border: 5px solid #0d3580;
   margin: 10px;
   padding: 10px;
   padding-left: 5%;
-  background-color: greenyellow;
+  background-color: #3f63b5;
   width: 75%;
   border-radius: 7px;
   margin-left: 10%;
+  color: white;
 }
 
 input {
@@ -168,23 +170,24 @@ input {
 #cart-items {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  align-items: center;
-  margin-left: 4%;
+  /* align-items: center; */
+  margin-left: 10%;
+  margin-right: 8%;
 }
 
 #bucket > h2 {
-  color: white;
-  padding-left: 45%;
+  color: #3f63b5;
+  padding-left: 48%;
 }
 
 #sort {
   position: absolute;
   width: 150px;
   height: 300px;
-  border: 5px solid black;
+  border: 5px solid #677189;
   border-radius: 10px;
   padding: 10px;
-  background-color: greenyellow;
+  background-color: #f9b931;
   margin: 10px;
   padding-left: 20px;
   margin-left: 100px;
@@ -202,6 +205,87 @@ input {
   margin-top: 8px;
   margin-right: 16px;
   font-size: 17px;
-  border: 5px solid black;
+  border: 5px solid #0d3580;
   border-radius: 10px;
+  background-color: #779a91;
+}
+
+#removeB {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  display: inline-block;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+
+/* setting the effects for add button */
+#removeB:active {
+  position: relative;
+  top: -1px;
+  background-color: red;
+}
+
+#cartI {
+  width: 370px;
+  height: 250px;
+  border: 5px solid #677189;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #f9b931;
+  margin-bottom: 10px;
+}
+
+/* setting hover style for item box */
+#cartI:hover {
+  font-weight: bold;
+}
+
+#placeB {
+  background-color: white;
+  border: solid 5px #0d3580;
+  border-radius: 15px;
+  display: inline-block;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: -70px;
+  margin-bottom: 0px;
+  margin-left: 77%;
+  min-height: 60px;
+  min-width: 0;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 20%;
+  will-change: transform;
+  position: relative;
+}
+
+#placeB:active {
+  position: relative;
+  top: -1px;
+  background-color: white;
 }
