@@ -78,13 +78,6 @@ let webstore = new Vue({
         text += order[i] + ", ";
       }
 
-      /*     function getItem(id) {
-        let data = JSON.parse(this.products);
-        let product = data.filter((d) => d.id === id);
-
-        document.getElementById("order").setInnerHTML +=
-          "<p>" + product.title + "</p>";
-      } */
       this.order.cart = text.slice(0, -2);
       this.showPlaceOrder = true;
     },

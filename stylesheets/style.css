@@ -170,7 +170,6 @@ input {
 #cart-items {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* align-items: center; */
   margin-left: 10%;
   margin-right: 8%;
 }
