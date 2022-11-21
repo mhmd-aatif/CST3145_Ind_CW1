@@ -5,6 +5,7 @@ body {
   margin: 0px;
 }
 
+/* styling the lessons area */
 #products {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -12,7 +13,7 @@ body {
   margin-left: 30%;
 }
 
-/* styling the item box */
+/* styling each lesson */
 #product {
   width: 370px;
   height: 280px;
@@ -23,13 +24,13 @@ body {
   margin: 10px;
 }
 
-/* setting hover style for item box */
+/* setting hover style for each lesson */
 #product:hover {
   border: 5px solid #677189;
   font-weight: bold;
 }
 
-/* styling the item details */
+/* styling the lesson details */
 #details {
   width: 170px;
   height: 200px;
@@ -95,6 +96,7 @@ body {
   background-color: #677189;
 }
 
+/* styling the cart page button */
 #checkB {
   background-color: #779a91;
   border: solid 5px #0d3580;
@@ -127,6 +129,7 @@ body {
   background-color: #779a91;
 }
 
+/* styling the header */
 #header {
   background-color: #3f63b5;
   align-items: center;
@@ -144,6 +147,7 @@ body {
   height: 22px;
 }
 
+/* styling the order information */
 #order-info {
   border: 5px solid #0d3580;
   margin: 10px;
@@ -179,6 +183,7 @@ input {
   padding-left: 48%;
 }
 
+/* styling the sort area */
 #sort {
   position: absolute;
   width: 150px;
@@ -193,6 +198,7 @@ input {
   margin-top: 100px;
 }
 
+/* styling the search bar */
 #search-bar {
   position: absolute;
   margin-left: 100px;
@@ -209,6 +215,7 @@ input {
   background-color: #779a91;
 }
 
+/* styling the remove from cart button */
 #removeB {
   background-color: red;
   color: white;
@@ -234,13 +241,14 @@ input {
   will-change: transform;
 }
 
-/* setting the effects for add button */
+/* setting the effects for remove from cart button */
 #removeB:active {
   position: relative;
   top: -1px;
   background-color: red;
 }
 
+/* styling the cart items */
 #cartI {
   width: 370px;
   height: 250px;
@@ -251,11 +259,12 @@ input {
   margin-bottom: 10px;
 }
 
-/* setting hover style for item box */
+/* setting hover style for cart items */
 #cartI:hover {
   font-weight: bold;
 }
 
+/* styling the place order button */
 #placeB {
   background-color: white;
   border: solid 5px #0d3580;

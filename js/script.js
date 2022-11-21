@@ -6,6 +6,7 @@ let webstore = new Vue({
     sitename: "activitystore", // defines sitename
     products: products,
     order: {
+      //order details
       firstName: "",
       lastName: "",
       address: "",
@@ -17,12 +18,12 @@ let webstore = new Vue({
       sendGift: "Send as a gift",
       dontSendGift: "Do not send as a gift",
       cart: "",
-    },
+    }, //order locations
     states: {
       DXB: "Dubai",
       SHJ: "Sharjah",
       ADH: "Abu Dhabi",
-    },
+    }, //sort options
     sort: {
       by: "Price",
       order: "a",
@@ -50,12 +51,15 @@ let webstore = new Vue({
         });
       }
     },
+    //method for showing cart page
     showCheckout() {
       this.showProduct = this.showProduct ? false : true;
     },
+    //method for disabling add to cart button
     canAdd(product) {
       return product.space > this.cartCount(product.id);
     },
+    //method for checking number of same items in cart
     cartCount(id) {
       let count = 0;
       for (let i = 0; i < this.cart.length; i++) {
@@ -65,6 +69,7 @@ let webstore = new Vue({
       }
       return count;
     },
+    //method for placing order
     submitForm() {
       let order = [];
 
@@ -81,6 +86,7 @@ let webstore = new Vue({
       this.order.cart = text.slice(0, -2);
       this.showPlaceOrder = true;
     },
+    //method for removing item from cart
     removeItem(product) {
       const objWithIdIndex = this.displayCart.findIndex(
         (obj) => obj.id === product.id
@@ -106,9 +112,11 @@ let webstore = new Vue({
     cartItemCount() {
       return this.cart.length || "";
     },
+    //method for enabling cart page button
     canCheckOut() {
       return this.cart.length != 0;
     },
+    //method for enabling place order button
     canPlaceOrder() {
       return (
         this.order.firstName.match(/^[A-Za-z]+$/) &&
@@ -119,7 +127,7 @@ let webstore = new Vue({
         this.order.state != ""
       );
     },
-
+    //method for searching and sorting products
     sortedProducts() {
       if (this.search !== "") {
         return this.products.filter(

@@ -2,6 +2,7 @@
   <head>
     <!-- Setting the title of the page -->
     <title>Activity Store</title>
+    <!-- Setting the favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png" />
     <!-- Linking the external stylesheet -->
     <link rel="stylesheet" href="stylesheets/style.css" />
@@ -26,6 +27,7 @@
       <div id="header">
         <h2>ACTIVITY STORE</h2>
       </div>
+      <!-- Creating cart page button -->
       <div id="checkout">
         <button
           id="checkB"
@@ -45,9 +47,11 @@
         </button>
       </div>
       <div v-if="showProduct">
+        <!-- Creating search bar -->
         <div id="search-bar">
           <input type="text" placeholder="Search.." v-model.trim="search" />
         </div>
+        <!-- Creating sort area -->
         <div id="sort">
           <h2>Sort</h2>
           <p>By</p>
@@ -70,9 +74,11 @@
           <input type="radio" id="descending" value="d" v-model="sort.order" />
           <label for="descending">Descending</label>
         </div>
+        <!-- Creating lessons area -->
         <div id="products">
+          <!-- Loop for showing all lessons -->
           <div id="product" v-for="product in sortedProducts">
-            <!-- Creating div for subject details -->
+            <!-- Creating div for lesson details -->
             <div id="details">
               <p>Subject: {{ product.title }}</p>
               <p>Location: {{ product.location }}</p>
@@ -109,6 +115,7 @@
           </div>
         </div>
       </div>
+      <!-- Creating confirmation page -->
       <div v-else-if="showPlaceOrder">
         <div id="order-info">
           <h2>Order Placed Successfully!</h2>
@@ -124,6 +131,7 @@
           <p>Method : {{order.method}}</p>
         </div>
       </div>
+      <!-- Creating cart and order information page -->
       <div v-else>
         <div id="bucket">
           <h2>Cart</h2>
@@ -146,6 +154,7 @@
               <div id="image">
                 <img id="imgsize" v-bind:src="product.image" />
               </div>
+              <!-- Creating remove from cart button -->
               <button id="removeB" @click="removeItem(product)">Remove</button>
             </div>
           </div>
