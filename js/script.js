@@ -130,10 +130,17 @@ let webstore = new Vue({
     //method for searching and sorting products
     sortedProducts() {
       if (this.search !== "") {
+        // return this.products.filter(
+        //   (item) =>
+        //     item.title.toLowerCase() === this.search.toLowerCase() ||
+        //     item.location.toLowerCase() === this.search.toLowerCase()
+        // );
+         const query = this.search.toLowerCase();
         return this.products.filter(
-          (item) =>
-            item.title.toLowerCase() === this.search.toLowerCase() ||
-            item.location.toLowerCase() === this.search.toLowerCase()
+          (product) =>
+            product.title.toLowerCase().includes(query) ||
+            product.location.toLowerCase().includes(query) ||
+            product.price.toString().includes(query)
         );
       } else {
         switch (this.sort.order) {
